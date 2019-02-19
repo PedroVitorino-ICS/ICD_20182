@@ -6,7 +6,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-
 driver = webdriver.Chrome()
 driver.get("http://dabsistemas.saude.gov.br/sistemas/sisvanV2/relatoriopublico/index")
 print(driver.title)
@@ -19,8 +18,13 @@ try:
 finally:
     print("finally")
 
-#driver.implicitly_wait(5)
-#driver.find_element(By.XPATH, '//button[text()="SELECIONAR RELATÓRIO"]')
+driver.implicitly_wait(5)
 
+elements = [];
+elements = driver.find_elements_by_class_name("btn-success");
 
-driver.close()
+print(elements[0])
+print(elements[0].text)
+elements[0].click()
+
+#driver.close()
