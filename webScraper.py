@@ -10,21 +10,15 @@ driver = webdriver.Chrome()
 driver.get("http://dabsistemas.saude.gov.br/sistemas/sisvanV2/relatoriopublico/index")
 print(driver.title)
 
-os.makedirs('relats', exist_ok=True) # Criando a pasta para colocar os relatorios baixados
-try:
-    element = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.CLASS_NAME, "info-box-text"))
-    )
-finally:
-    print("finally")
+#os.makedirs('relats', exist_ok=True) # Criando a pasta para colocar os relatorios baixados
 
-driver.implicitly_wait(5)
+driver.implicitly_wait(6) # para dar tempo de carregar os elementos da página
 
+# a classe btn-success refere-se aos botões de selecionar relatório
 elements = [];
 elements = driver.find_elements_by_class_name("btn-success");
-
 print(elements[0])
 print(elements[0].text)
-elements[0].click()
+elements[0].click() # clicando no primeiro relatorio (estado nutricional)
 
 #driver.close()
