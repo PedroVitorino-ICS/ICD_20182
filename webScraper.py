@@ -1,4 +1,3 @@
-import os
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -8,8 +7,6 @@ from selenium.webdriver.support.ui import Select
 def initialize_driver():
     driver = webdriver.Chrome()
     driver.get("http://dabsistemas.saude.gov.br/sistemas/sisvanV2/relatoriopublico/index")
-    os.makedirs('relats', exist_ok=True) # Criando a pasta para colocar os relatorios baixados
-    print(driver.title)
     return driver
 
 def choose_report(index, driver):
