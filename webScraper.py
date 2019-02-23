@@ -64,15 +64,15 @@ def download_report(driver):
     element = driver.find_element_by_id("Download")
     element.click()
 
-
-driver = initialize_driver()
-choose_report(0, driver)
-year_select(driver)
-month_select(driver)
-groupby_select(driver)
-state_and_city_select(driver)
-region_select(driver)
-age_select(driver)
-sex_select(driver)
-download_report(driver)
+if __name__ == '__main__':
+    driver = initialize_driver()
+    choose_report(0, driver)
+    year_select(driver)
+    month_select(driver)
+    groupby_select(driver)
+    state_and_city_select(driver)
+    region_select(driver)
+    age_select(driver)
+    sex_select(driver)
+    download_report(driver)
 
