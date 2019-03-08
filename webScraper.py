@@ -17,35 +17,35 @@ def choose_report(index, driver):
     elements[index].click() # clicando no primeiro relatorio (estado nutricional)
 
 def year_select(driver, year):
-    driver.implicitly_wait(3)
+    driver.implicitly_wait(4)
     select = Select(driver.find_element_by_id("nuAno"))
     select.select_by_visible_text(year)
 
 def month_select(driver):
-    driver.implicitly_wait(1)
+    driver.implicitly_wait(2)
     select = Select(driver.find_element_by_id("nuMes"))
     select.select_by_visible_text("TODOS")
 
 def groupby_select(driver):
-    driver.implicitly_wait(1)
+    driver.implicitly_wait(2)
     select = Select(driver.find_element_by_name("tpFiltro"))
     select.select_by_visible_text("MUNICÍPIO")
 
 def state_and_city_select(driver):
-    driver.implicitly_wait(1)
+    driver.implicitly_wait(2)
     select = Select(driver.find_element_by_id("coUfIbge"))
     select.select_by_visible_text("TODOS")
-    driver.implicitly_wait(1)
+    driver.implicitly_wait(2)
     select = Select(driver.find_element_by_id("coMunicipioIbge"))
     select.select_by_visible_text("TODOS")
 
 def region_select(driver):
-    driver.implicitly_wait(1)
+    driver.implicitly_wait(2)
     select = Select(driver.find_element_by_name("st_cobertura"))
     select.select_by_visible_text("TODAS")
 
 def age_select(driver):
-    driver.implicitly_wait(1)
+    driver.implicitly_wait(2)
     select = Select(driver.find_element_by_name("nu_ciclo_vida"))
     select.select_by_visible_text("CRIANÇA")
     driver.implicitly_wait(2)
@@ -55,7 +55,7 @@ def age_select(driver):
     select.select_by_visible_text("< 2 anos")
 
 def sex_select(driver, sex):
-    driver.implicitly_wait(1)
+    driver.implicitly_wait(2)
     select = Select(driver.find_element_by_name("ds_sexo2"))
     select.select_by_visible_text(sex)
 
@@ -78,7 +78,7 @@ def download_all_reports(driver):
     for i in range(2008, 2019):
         download_single_report(driver, str(i), 'FEMININO')
         driver.refresh()
-        driver.implicitly_wait(5)
+        driver.implicitly_wait(7)
         download_single_report(driver, str(i), 'MASCULINO')
         print("baixados relatórios de {}".format(i))
 
