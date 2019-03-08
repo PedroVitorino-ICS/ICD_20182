@@ -77,14 +77,11 @@ def download_single_report(driver, year, sex):
 def download_all_reports(driver):
     for i in range(2008, 2019):
         download_single_report(driver, str(i), 'FEMININO')
-        print("Baixando... ano {} e sexo feminino".format(i))
         driver.refresh()
-        driver.implicitly_wait(3)
-        print("Baixando... ano {} e sexo masculino".format(i))
-        driver.refresh()
-        driver.implicitly_wait(3)
+        driver.implicitly_wait(5)
+        download_single_report(driver, str(i), 'MASCULINO')
+        print("baixados relatórios de {}".format(i))
 
 if __name__ == '__main__':
     driver = initialize_driver()
     download_all_reports(driver)
-    driver.quit()
