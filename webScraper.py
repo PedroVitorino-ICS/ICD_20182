@@ -10,7 +10,7 @@ def initialize_driver():
     return driver
 
 def choose_report(index, driver):
-    driver.implicitly_wait(8) # para dar tempo de carregar os elementos da página
+    driver.implicitly_wait(10) # para dar tempo de carregar os elementos da página
     elements = [];
     # a classe btn-success refere-se aos botões de selecionar relatório
     elements = driver.find_elements_by_class_name("btn-success");
@@ -74,12 +74,23 @@ def download_single_report(driver, year, sex):
     sex_select(driver, sex)
     download_report(driver)
 
+def update_report_variables(driver, year, sex):
+    driver.implicitly_wait(2)
+    sex_select(driver, sex)
+    driver.implicitly_wait(2)
+    year_select(driver, year)
+    driver.implicitly_wait(2)
+    download_report(driver)
+
 def download_all_reports(driver):
     for i in range(2008, 2019):
-        download_single_report(driver, str(i), 'FEMININO')
-        driver.refresh()
-        driver.implicitly_wait(7)
-        download_single_report(driver, str(i), 'MASCULINO')
+        if(i == 2008):
+            download_single_report(driver, str(i), 'FEMININO')
+            sex_select(driver, 'MASCULINO')
+            download_report(driver)
+        else:
+            update_report_variables(driver, str(i), 'FEMININO')
+            update_report_variables(driver, str(i), 'MASCULINO')
         print("baixados relatórios de {}".format(i))
 
 if __name__ == '__main__':
