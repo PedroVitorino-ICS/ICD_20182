@@ -21,6 +21,20 @@ def insert_year_and_sex(df, year, sex):
     df.insert(0, 'ano', '2008')
     return df
 
+# ENTRA: o arquivo
+# RETORNA: str contendo o sexo em letras capitais. 
+def find_sex(file):
+    with open(file) as f:
+        head = [next(f) for i in range(400)]
+    if 'MASCULINO' in head:
+        return 'MASCULINO'
+    if 'FEMININO' in head:
+        return 'FEMININO'
+    else:
+        print("Não foi possível encontrar o sexo.")
+        return None
+        
+
 def delete_total_rows(df):
     # https://stackoverflow.com/questions/35186291/how-do-i-delete-rows-not-starting-with-x-in-pandas-or-keep-rows-starting-with
     # Fazendo com que df receba apenas os valores que não começam com 'TOTAL'
@@ -29,23 +43,22 @@ def delete_total_rows(df):
     return df[~df['região'].astype(str).str.startswith('TOTAL')]
 
 #Até o AcompEstadoNutricional10, é do sexo feminino
-def female_appends():
-    for i in range(0,11):
-        filename = 'Downloads/AcompEstadoNutricional'
-        print(i)
-        if(i == 0 or i != 0):
-            buff = read_df(filename + '.xls')
-            # criar com o ano 2008
-        else:
-            appendix = str(i)
-            filename = filename + ' (' + appendix + ')'
-            buff = read_df(filename + '.xls')
-            # Criar com o ano 2008+i
-            # AQUI: função para concatenar os buffers
-    return buff
+#def female_appends():
+#    for i in range(0,11):
+#        filename = 'Downloads/AcompEstadoNutricional'
+#        print(i)
+#        if(i == 0 or i != 0):
+#            buff = read_df(filename + '.xls')
+#            # criar com o ano 2008
+#        else:
+#            appendix = str(i)
+#            filename = filename + ' (' + appendix + ')'
+#            buff = read_df(filename + '.xls')
+#            # Criar com o ano 2008+i
+#            # AQUI: função para concatenar os buffers
+#    return buff
 
 df = read_df('Downloads/AcompEstadoNutricional.xls')
 df = clean_df(df)
 df = insert_year_and_sex(df, 2008, 'F')
 dataframe = df
-buff = female_appends()
