@@ -1,7 +1,7 @@
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
+#from selenium.webdriver.common.keys import Keys
+#from selenium.webdriver.common.by import By
+#from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.ui import Select
 
 def initialize_driver():
@@ -58,6 +58,11 @@ def sex_select(driver, sex):
     driver.implicitly_wait(2)
     select = Select(driver.find_element_by_name("ds_sexo2"))
     select.select_by_visible_text(sex)
+    
+def origin_select(driver):
+    driver.implicitly_wait(1)
+    select = Select(driver.find_element_by_name("co_sistema_origem"))
+    select.select_by_visible_text("Sistema de Gestão do Bolsa Família (DATASUS)")
 
 def download_report(driver):
     element = driver.find_element_by_id("Download")
@@ -72,14 +77,15 @@ def download_single_report(driver, year, sex):
     region_select(driver)
     age_select(driver)
     sex_select(driver, sex)
+    origin_select(driver)
     download_report(driver)
 
 def update_report_variables(driver, year, sex):
     driver.implicitly_wait(2)
     sex_select(driver, sex)
-    driver.implicitly_wait(2)
+    driver.implicitly_wait(1)
     year_select(driver, year)
-    driver.implicitly_wait(2)
+    driver.implicitly_wait(1)
     download_report(driver)
 
 def download_all_reports(driver):
