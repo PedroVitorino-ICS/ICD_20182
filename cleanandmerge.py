@@ -69,13 +69,12 @@ def delete_total_rows(df):
 
 
 def clean_and_merge_all_files():
-    for i in range(0,4):
+    for i in range(0,4): #ALTERAR PARA (0,22) PARA FAZER COM TODAS AS TABELAS
         filename = 'Downloads/AcompEstadoNutricional'
         print('Index: ' + str(i))
         if(i == 0):
             df = read_df(filename + '.xls')
             df = clean_df(df, filename + '.xls')
-            print(filename + '.xls')
         else:
             appendix = str(i)
             filename = filename + ' (' + appendix + ')'
@@ -86,8 +85,7 @@ def clean_and_merge_all_files():
                 
 
 ############ MAIN ################
-filename = 'Downloads/AcompEstadoNutricional.xls'
+#filename = 'Downloads/AcompEstadoNutricional.xls'
 #df = read_df(filename)
 #df = clean_df(df, filename)
 df = clean_and_merge_all_files()
-#dtaframe = df
