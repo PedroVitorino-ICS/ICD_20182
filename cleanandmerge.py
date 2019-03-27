@@ -54,9 +54,9 @@ def find_year(file):
         # apenas as 400 primeiras linhas porque com certeza esta nessa margem
     for i in head:
         index = head.index(i)
-        if('Ano: </strong>' in head[index]):
+        if('Ano: </strong>' in head[index]): # O ano aparece após isso
             year = head[index].split('Ano: </strong>', 1)[1]
-            return int(year[:4])
+            return int(year[:4]) # Os 4 caracteres são cada dígito do ano
     print("Não foi possível encontrar o ano.")
     return None    
 
@@ -77,6 +77,7 @@ def clean_and_merge_all_files():
             df = clean_df(df, filename + '.xls')
         else:
             appendix = str(i)
+            # Necessário pois os arquivos são baixados como Nome, Nome (1), Nome (2), etc.
             filename = filename + ' (' + appendix + ')'
             buff = read_df(filename + '.xls')
             buff = clean_df(buff, filename + '.xls')
