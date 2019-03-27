@@ -67,25 +67,27 @@ def delete_total_rows(df):
     # para depuração: print(df[df['região'].astype(str).str.startswith('TOTAL')])
     return df[~df['região'].astype(str).str.startswith('TOTAL')]
 
-#Até o AcompEstadoNutricional10, é do sexo feminino
-#def female_appends():
-#    for i in range(0,11):
-#        filename = 'Downloads/AcompEstadoNutricional'
-#        print(i)
-#        if(i == 0 or i != 0):
-#            buff = read_df(filename + '.xls')
-#            # criar com o ano 2008
-#        else:
-#            appendix = str(i)
-#            filename = filename + ' (' + appendix + ')'
-#            buff = read_df(filename + '.xls')
-#            # Criar com o ano 2008+i
-#            # AQUI: função para concatenar os buffers
-#    return buff
-    
+
+def clean_and_merge_all_files():
+    for i in range(0,4):
+        filename = 'Downloads/AcompEstadoNutricional'
+        print('Index: ' + str(i))
+        if(i == 0):
+            df = read_df(filename + '.xls')
+            df = clean_df(df, filename + '.xls')
+            print(filename + '.xls')
+        else:
+            appendix = str(i)
+            filename = filename + ' (' + appendix + ')'
+            buff = read_df(filename + '.xls')
+            buff = clean_df(buff, filename + '.xls')
+            df = df.append(buff)
+    return df
+                
 
 ############ MAIN ################
-filename = 'Downloads/AcompEstadoNutricional (3).xls'
-df = read_df(filename)
-df = clean_df(df, filename)
-dataframe = df
+filename = 'Downloads/AcompEstadoNutricional.xls'
+#df = read_df(filename)
+#df = clean_df(df, filename)
+df = clean_and_merge_all_files()
+#dtaframe = df
