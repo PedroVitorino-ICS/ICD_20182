@@ -84,9 +84,14 @@ def clean_and_merge_all_files():
             df = df.append(buff)
     return df
                 
+def export_df(df):
+    df.to_csv('DfUnic.csv', encoding = 'utf-8', index = True)
+    df.to_excel('DfUnic.xls', encoding = 'utf-8', index = True)
+    return None
 
 ############ MAIN ################
 #filename = 'Downloads/AcompEstadoNutricional.xls'
 #df = read_df(filename)
 #df = clean_df(df, filename)
 df = clean_and_merge_all_files()
+export_df(df)
