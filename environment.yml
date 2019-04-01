@@ -1,0 +1,7 @@
+name: final-notebook
+channels:
+  - conda-forge
+depedencies:
+  - pandas
+  - geopandas
+  - matplotlib
