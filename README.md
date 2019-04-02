@@ -15,3 +15,16 @@ Instruções relacionadas ao WebScraper podem ser encontradas na branch [WebScra
 ```
 conda install -c plotly plotly 
 ```
+```
+conda install -c conda-forge geopandas
+```
+```
+conda install pandas
+```
+```
+conda install -c bokeh bokeh 
+```
+```
+conda install -c conda-forge matplotlib 
+```
+
