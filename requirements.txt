@@ -1,5 +1,0 @@
-pandas
-geopandas
-matplotlib
-plotly
-bokeh

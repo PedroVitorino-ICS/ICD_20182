@@ -8,7 +8,9 @@ def get_sex_character(sex):
         return None
 
 def read_df(filename):
-    table = pd.read_html(filename)
+    # argumento thousands necessário pois o pandas estava lendo os 
+    # milhares (ex: 1.000) como float
+    table = pd.read_html(filename, thousands='.')
     return table[0]
 
 def clean_df(df, filename):
@@ -69,8 +71,8 @@ def delete_total_rows(df):
 
 
 def clean_and_merge_all_files():
-    for i in range(0,4): #ALTERAR PARA (0,22) PARA FAZER COM TODAS AS TABELAS
-        filename = 'Downloads/AcompEstadoNutricional'
+    for i in range(0,22): #ALTERAR PARA (0,22) PARA FAZER COM TODAS AS TABELAS
+        filename = '../Downloads/AcompEstadoNutricional'
         print('Index: ' + str(i))
         if(i == 0):
             df = read_df(filename + '.xls')
@@ -84,14 +86,11 @@ def clean_and_merge_all_files():
             df = df.append(buff)
     return df
                 
-def export_df(df):
-    df.to_csv('DfUnic.csv', encoding = 'utf-8', index = True)
-    df.to_excel('DfUnic.xls', encoding = 'utf-8', index = True)
-    return None
 
 ############ MAIN ################
 #filename = 'Downloads/AcompEstadoNutricional.xls'
 #df = read_df(filename)
 #df = clean_df(df, filename)
 df = clean_and_merge_all_files()
-export_df(df)
+
+df.to_csv('DfUnic.csv', encoding = 'utf-8', index = True)
