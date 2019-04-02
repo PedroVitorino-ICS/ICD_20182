@@ -20,4 +20,9 @@ O primeiro passo é executar o Chromedriver e não finalizá-lo enquanto o códi
 Importante: se o Chromedriver for finalizado antes dos downloads serem concluídos, alguns arquivos não serão baixados. 
 
 
-Após executar o Chromedriver, o código poderá ser executado. Então, é só aguardar.
+Após executar o Chromedriver, o código poderá ser executado. Então é só aguardar. Os downloads irão para o diretório de downloads do Chrome, que por padrão é a pasta Downloads. 
+
+### Em caso de falhas
+Recomenda-se finalizar a execução do WebScraper e é importante que, na pasta downloads, sejam excluídos todos os arquivos baixados pelo WebScraper. Os arquivos começam com o nome AcompEstadoNutricional. 
+
+Então pode-se executar novamente o WebScraper.
