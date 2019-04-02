@@ -2,9 +2,7 @@
 Repositório do projeto da disciplina Introdução à Ciência de Dados, semestre 2018.2, pela Universidade Federal de Alagoas. 
 
 #### Observação:
-Instruções relacionadas ao WebScraper podem ser encontradas na branch [WebScraper]("https://github.com/victoraccete/ICD_20182/tree/webScraper").
-
-[Hiperlink]('https://anaconda.org/plotly/plotly')
+Instruções relacionadas ao WebScraper podem ser encontradas na branch ['WebScraper']("https://github.com/victoraccete/ICD_20182/tree/webScraper").
 
 #### Dependências necessárias:
 - Pandas
