@@ -12,3 +12,12 @@ Ou de:
 ```
 pip install selenium
 ```
+## Instruções de utilização
+O Chromedriver deve permanecer no mesmo diretório de execução do WebScraper. 
+
+O primeiro passo é executar o Chromedriver e não finalizá-lo enquanto o código não terminar de rodar e os downloads forem concluídos. 
+
+Importante: se o Chromedriver for finalizado antes dos downloads serem concluídos, alguns arquivos não serão baixados. 
+
+
+Após executar o Chromedriver, o código poderá ser executado. Então, é só aguardar.
