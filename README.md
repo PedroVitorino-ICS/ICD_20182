@@ -34,3 +34,5 @@ Após baixar todos os arquivos com o WebScraper, os arquivos ficarão no diretó
 Prefira executar o código a partir do diretório do usuário, para evitar problemas com os diretórios. 
 
 Uma vez que os arquivos estiverem baixados, o código [cleanandmerge.py](https://github.com/victoraccete/ICD_20182/blob/master/cleanandmerge.py) irá ler todos os arquivos, tratar e organizar os dados e agrupar num único dataframe que será exportado como um arquivo .csv no diretório de execução do código. 
+
+Uma vez que o cleanandmerge.py tiver finalizado e corretamento exportado o .csv, o [Jupyter Notebook](https://github.com/victoraccete/ICD_20182/blob/master/map_plot.ipynb) pode ser executado para visualizar os demais tratamentos de dados e os mapas e gráficos gerados. 
