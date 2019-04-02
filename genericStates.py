@@ -1,11 +1,8 @@
 import plotly 
-#import csv
 import pandas as pd
-#import numpy as np
 import plotly.offline as py
 import plotly.graph_objs as go
 
-#statesname = 27
 def setup_df():
     plotly.tools.set_credentials_file(username='pedro.vitorino20',
                                   api_key='warhero23')        
@@ -28,28 +25,28 @@ def create_plots(state_cod, states_df):
                     x=df_statesM.ano,
                     y=df_statesM['peso muito baixo'],
                     name = "Peso Muito Baixo",
-                    line = dict(color = 'red'),
+                    line = dict(color = '#990000'),
                     opacity = 0.8)
     
     trace1 = go.Scatter(
                     x=df_statesM.ano,
                     y=df_statesM['peso baixo'],
                     name = "Peso Baixo",
-                    line = dict(color = 'blue'),
+                    line = dict(color = 'orange'),
                     opacity = 0.8)
                     
     trace2 = go.Scatter(
                     x=df_statesM.ano,
                     y=df_statesM['peso adequado'],
                     name = "Peso Adequado",
-                    line = dict(color = 'black'),
+                    line = dict(color = 'green'),
                     opacity = 0.8)
     
     trace3 = go.Scatter(
                     x=df_statesM.ano,
                     y=df_statesM['peso elevado'],
                     name = "Peso Elevado",
-                    line = dict(color = 'pink'),
+                    line = dict(color = 'blue'),
                     opacity = 0.8)
         
     df_states_F = states_df[states_df['cod uf']==state_cod][states_df['sexo'] 
@@ -61,7 +58,7 @@ def create_plots(state_cod, states_df):
                     x=df_states_F.ano,
                     y=df_states_F['peso muito baixo'],
                     name = "Peso Muito Baixo",
-                    line = dict(color = 'red'),
+                    line = dict(color = '#990000'),
                     opacity = 0.8,
                     xaxis='x2',
                     yaxis='y2')
@@ -70,7 +67,7 @@ def create_plots(state_cod, states_df):
                     x=df_states_F.ano,
                     y=df_states_F['peso baixo'],
                     name = "Peso Baixo",
-                    line = dict(color = 'blue'),
+                    line = dict(color = 'orange'),
                     opacity = 0.8,
                     xaxis='x2',
                     yaxis='y2')
@@ -79,7 +76,7 @@ def create_plots(state_cod, states_df):
                     x=df_states_F.ano,
                     y=df_states_F['peso adequado'],
                     name = "Peso Adequado",
-                    line = dict(color = 'black'),
+                    line = dict(color = 'green'),
                     opacity = 0.8,
                     xaxis='x2',
                     yaxis='y2')
@@ -88,56 +85,56 @@ def create_plots(state_cod, states_df):
                     x=df_states_F.ano,
                     y=df_states_F['peso elevado'],
                     name = "Peso Elevado",
-                    line = dict(color = 'pink'),
+                    line = dict(color = 'blue'),
                     opacity = 0.8,
                     xaxis='x2',
                     yaxis='y2')
     
     trace8 = go.Box(y = states_df.loc[states_df['sexo'] == "M", 'peso muito baixo'],
                     name = 'Peso Muito Baixo-M',
-                    marker = {'color': 'blue'},
+                    marker = {'color': '#ff0000'},
                     xaxis='x3',
                     yaxis='y3')
                              
     trace9 = go.Box(y = states_df.loc[states_df['sexo'] == "F", 'peso muito baixo'],
                     name = 'Peso Muito Baixo-F',
-                    marker = {'color': 'red'},
+                    marker = {'color': '#ffcccc'},
                     xaxis='x3',
                     yaxis='y3')
                               
     trace10 = go.Box(y = states_df.loc[states_df['sexo'] == "M", 'peso baixo'],
                     name = 'Peso Baixo-M',
-                    marker = {'color': 'blue'},
+                    marker = {'color': '#ff8000'},
                     xaxis='x3',
                     yaxis='y3')
                               
     trace11 = go.Box(y = states_df.loc[states_df['sexo'] == "F", 'peso baixo'],
                     name = 'Peso Baixo-F',
-                    marker = {'color': 'red'},
+                    marker = {'color': '#ffff99'},
                     xaxis='x3',
                     yaxis='y3')
     
     trace12 = go.Box(y = states_df.loc[states_df['sexo'] == "M", 'peso adequado'],
                     name = 'Peso Adequado-M',
-                    marker = {'color': 'blue'},
+                    marker = {'color': '#006600'},
                     xaxis='x3',
                     yaxis='y3')
                               
     trace13 = go.Box(y = states_df.loc[states_df['sexo'] == "F", 'peso adequado'],
                     name = 'Peso Adequado-F',
-                    marker = {'color': 'red'},
+                    marker = {'color': '#99ff99'},
                     xaxis='x3',
                     yaxis='y3')
     
     trace14 = go.Box(y = states_df.loc[states_df['sexo'] == "M", 'peso elevado'],
                     name = 'Peso Elevado-M',
-                    marker = {'color': 'blue'},
+                    marker = {'color': '#000080'},
                     xaxis='x3',
                     yaxis='y3')
                               
     trace15 = go.Box(y = states_df.loc[states_df['sexo'] == "F", 'peso elevado'],
                     name = 'Peso Elevado-F',
-                    marker = {'color': 'red'},
+                    marker = {'color': '#b3daff'},
                     xaxis='x3',
                     yaxis='y3')
     
